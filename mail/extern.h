@@ -139,7 +139,6 @@ int	 getrawlist(char *, char **, int);
 uid_t	 getuserid(char *);
 int	 grabh(struct header *, int);
 int	 group(void *);
-void	 hangup(int);
 int	 hash(const char *);
 void	 hdrstop(int);
 int	 headers(void *);
@@ -157,7 +156,7 @@ int	 isdate(char *);
 int	 isdir(char *);
 int	 isfileaddr(char *);
 int	 ishead(char *);
-int	 isign(const char *, struct ignoretab []);
+int	 isign(const char *, struct ignoretab [2]);
 int	 isprefix(const char *, const char *);
 void	 istrncpy(char *, const char *, size_t);
 const struct cmd *
@@ -258,3 +257,6 @@ int	 writeback(FILE *);
 
 extern char *__progname;
 extern char *tmpdir;
+#ifdef __APPLE__
+extern int unix2003_compat;
+#endif
